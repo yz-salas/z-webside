@@ -1,0 +1,43 @@
+html {
+	scroll-behavior: smooth;
+}
+@font-face {
+	font-family: Erode;
+	src: url('./assets/Erode_Complete/Erode_Complete/Fonts/OTF/Erode-Bold.otf') format('opentype');
+	font-weight: 900;
+}
+
+@font-face {
+	font-family: Erode;
+	src: url('./assets/Erode_Complete/Erode_Complete/Fonts/OTF/Erode-Light.otf') format('opentype');
+	font-weight: 100;
+}
+
+@import 'tailwindcss';
+
+@theme {
+	--font-erode: Erode, 'sans-serif';
+	--font-weight-10: 100;
+	--font-weight-900: 900;
+}
+
+.container {
+	padding-left: 4rem;
+	padding-right: 4rem;
+}
+
+@keyframes patternMove {
+	0% {
+		transform: translate(0, 0);
+	}
+	50% {
+		transform: translate(5px, 5px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+.animate-pattern {
+	animation: patternMove 3s ease-in-out infinite;
+}
