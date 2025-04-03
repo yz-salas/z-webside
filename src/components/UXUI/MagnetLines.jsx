@@ -19,16 +19,16 @@ export default function MagnetLines({
 
 		const items = container.querySelectorAll('span');
 
-		const onPointerMove = (pointer) => {
+		const onPointerMove = (event) => {
 			items.forEach((item) => {
 				const rect = item.getBoundingClientRect();
 				const centerX = rect.x + rect.width / 2;
 				const centerY = rect.y + rect.height / 2;
 
-				const b = pointer.x - centerX;
-				const a = pointer.y - centerY;
+				const b = event.clientX - centerX; // Cambiado de pointer.x
+				const a = event.clientY - centerY; // Cambiado de pointer.y
 				const c = Math.sqrt(a * a + b * b) || 1;
-				const r = ((Math.acos(b / c) * 180) / Math.PI) * (pointer.y > centerY ? 1 : -1);
+				const r = ((Math.acos(b / c) * 180) / Math.PI) * (event.clientY > centerY ? 1 : -1);
 
 				item.style.setProperty('--rotate', `${r}deg`);
 			});
